@@ -10,13 +10,10 @@ var Stack = function() {
 };
 
 var extend = function (obj1, obj2) {
-  for(var key in obj2) {
-    obj1[key] = obj2[key]
+  for (var key in obj2) {
+    obj1[key] = obj2[key];
   }
 };
-
-
-
 
 var stackMethods = {
 
@@ -26,9 +23,9 @@ var stackMethods = {
   },
 
   pop: function () {
-    if(this.key > 0) {
-      var popped = this.storage[this.key-1];
-      delete this.storage[this.key-1];
+    if (this.key > 0) {
+      var popped = this.storage[this.key - 1];
+      delete this.storage[this.key - 1];
       this.key--;
       return popped;
     } else {
@@ -41,7 +38,3 @@ var stackMethods = {
   }
 };
 
-
-var test = Stack(); 
-console.log(test)
-console.log(test.size()); //should expect 0
