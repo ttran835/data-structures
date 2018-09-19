@@ -18,7 +18,7 @@ var Queue = function() {
     // deq is always going to be first iteration; 
     if(key > 0) {
       var del = storage[0];
-      delete storage[0]
+      delete storage[0];
       storage[0] = storage[1];
       key --;
       return del; 
@@ -35,6 +35,3 @@ var Queue = function() {
 };
 
 
-Queue.enqueue('a');
-Queue.enqueue('b');
-Queue.dequeue();
