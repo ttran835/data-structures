@@ -13,13 +13,13 @@ Queue.prototype.dequeue = function () {
     return del;
   }
   return this.key; 
-}
+};
 
 Queue.prototype.enqueue = function (value) {
   this.storage[this.key] = value;
   this.key++;
-}
+};
 
 Queue.prototype.size = function () {
   return this.key;
-}
+};

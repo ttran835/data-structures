@@ -1,5 +1,5 @@
 var Queue = function() {
-  var obj = Object.create(queueMethods)
+  var obj = Object.create(queueMethods);
   obj.storage = {};
   obj.key = 0;
   return obj;
@@ -15,7 +15,7 @@ var queueMethods = {
 
   dequeue: function() {
     if (this.key > 0) {
-      var del = this.storage[0]
+      var del = this.storage[0];
       this.storage[0] = this.storage[1];
       this.key--;
       return del; 

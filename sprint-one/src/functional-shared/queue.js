@@ -22,7 +22,7 @@ var queueMethods = {
   },
 
   dequeue: function () {
-    if(this.key > 0) {
+    if (this.key > 0) {
       var del = this.storage[0];
       this.storage[0] = this.storage[1];
       this.key--;
