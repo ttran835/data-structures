@@ -11,20 +11,20 @@ var Stack = function() {
 Stack.prototype.pop = function () {
   if (this.key > 0) {
     var del = this.storage[this.key - 1];
-    this.storage[this.key - 1];
+    delete this.storage[this.key - 1];
     this.key--;
     return del;
   } else {
     return this.key; 
   }
-}
+};
 
 Stack.prototype.push = function (value) {
   this.storage[this.key] = value;
   this.key++;
-}
+};
 
 Stack.prototype.size = function () {
   return this.key;
-}
+};
 
