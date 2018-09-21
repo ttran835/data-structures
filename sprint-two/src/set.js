@@ -6,12 +6,17 @@ var Set = function() {
 
 var setPrototype = {
   add: function(item) {
-    this.storage.push(item);
+    if(!this.storage.includes(item)) {
+      this.storage.push(item);
+    } else {
+      return 'Item is already in Storage.'
+    }
+    
   },
   
   contains: function(item) {
-    if(this.storage.includes(item)) {
-        return true;
+    if (this.storage.includes(item)) {
+      return true;
     }
     return false;  
   },

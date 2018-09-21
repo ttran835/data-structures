@@ -25,7 +25,7 @@ var Tree = function(value) {
   newTree.value = value;
   newTree.parent = [];
   newTree.children = [];
-  extend(newTree,treeMethods);
+  extend(newTree, treeMethods);
 
   return newTree;
 };
@@ -44,11 +44,11 @@ var treeMethods = {
     //   //set the parent to have property;
     //   this.value = value;
     // } else {
-      this.children.push(new Tree(value));
+    this.children.push(new Tree(value));
     // }
     //property, an array containing a number of subtrees
   },
-/*
+  /*
   Most likely will need to solve this problem recursively... 
     need to reach the target;
     create conditional statement to say that if value === target; true
@@ -56,7 +56,7 @@ var treeMethods = {
         if this.children[i].value === target; true;
         if not, then we need to recursively go thru it.  
 
-*/
+  */
   contains: function(target) {
     var wasFound = false;
     var results = function (obj) {
@@ -69,9 +69,9 @@ var treeMethods = {
         results(value);
       });
     };
-      results(this);
-      return wasFound;
-    }
+    results(this);
+    return wasFound;
+  }
     
 };
 
