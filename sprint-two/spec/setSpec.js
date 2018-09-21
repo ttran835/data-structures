@@ -28,6 +28,6 @@ describe('set', function() {
     set.add('Hello');
     set.add('Hello');
     expect(set.storage.length).to.equal(1);
-  })
+  });
 
 });

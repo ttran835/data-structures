@@ -17,6 +17,7 @@ describe('graph', function() {
 
   it('should store values as nodes that were inserted', function() {
     graph.addNode(1);
+    expect(graph.storage[1].value).to.equal(1);
     expect(graph.contains(1)).to.equal(true);
   });
 
@@ -31,9 +32,12 @@ describe('graph', function() {
     graph.addNode(2);
     graph.addNode(1);
     graph.addNode(3);
+    graph.addNode(5);
     graph.addEdge(3, 2);
+    graph.addEdge(3, 5);
     expect(graph.hasEdge(3, 2)).to.equal(true);
     expect(graph.hasEdge(3, 1)).to.equal(false);
+    expect(graph.hasEdge(3, 5)).to.equal(true);
   });
 
   it('should remove edges between nodes', function() {

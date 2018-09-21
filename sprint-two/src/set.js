@@ -6,10 +6,10 @@ var Set = function() {
 
 var setPrototype = {
   add: function(item) {
-    if(!this.storage.includes(item)) {
+    if (!this.storage.includes(item)) {
       this.storage.push(item);
     } else {
-      return 'Item is already in Storage.'
+      return 'Item is already in Storage.';
     }
     
   },
