@@ -42,19 +42,19 @@
 var LinkedList = function() {
   var list = { 
     addToTail: function(value) {
-      if(this.tail) { //if tail exists
-        this.tail.next = Node(value) //if tail exists, then we add to the tail.  
+      if (this.tail) { //if tail exists
+        this.tail.next = Node(value); //if tail exists, then we add to the tail.  
         this.tail = this.tail.next;
 
-         //set this.head to equal this.tail  //then call Node again to create another object; 
+        //set this.head to equal this.tail  //then call Node again to create another object; 
       } else { 
         this.tail = Node(value); //create new Node Obj;
-        this.head = this.tail // this makes the head equal to the tail @ the beginning; 
+        this.head = this.tail; // this makes the head equal to the tail @ the beginning; 
       }
     },
 
     removeHead: function() {  
-      if(this.head === null & this.tail === null) {
+      if (this.head === null & this.tail === null) {
         return undefined;
       } else {
         var node = this.head.value;
@@ -62,7 +62,7 @@ var LinkedList = function() {
         return node;
 
         //need to set Node next value = node.next; 
-          //then this.head = null; 
+        //then this.head = null; 
       }
        
       //method, removes the first node from the list and returns its value
@@ -70,15 +70,18 @@ var LinkedList = function() {
 
     contains: function(target) {
       var node = this.head;
-      while(node)
-        if(node.value === target) {
+      while (node) {
+        if (node.value === target) {
           return true;
         } else {
           node = node.next;
         }
-        return false; 
+        
       //method, returns boolean reflecting whether or not the passed-in value is in the linked list
+      }
+      return false;
     }
+    
   };
 
   list.head = null;
@@ -95,14 +98,11 @@ var Node = function(value) {
 
   return node;
 };
-var test = new LinkedList();
-// console.log(test.head.value);
-test.addToTail(4);
-test.addToTail(5)
-test.removeHead();
+
 // console.log(test.head.value);
 
 /*
  * Complexity: What is the time complexity of the above functions?
+ *  n(o) since it is linear; 
  */
 
