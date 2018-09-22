@@ -11,7 +11,7 @@
 */
 
 var each = function (collection, callback) {
-  if(Array.isArray(collection)) {
+  if (Array.isArray(collection)) {
     for (var i = 0; i < collection.length; i++) {
       callback(collection[i], i, collection);
     }
@@ -55,15 +55,16 @@ Graph.prototype.contains = function(node) {
 
 // Removes a node from the graph.
 //have to go through each key & edge array to check 
-  //for(var key in this.storage) {
-    //iterate through the array; 
+//for(var key in this.storage) {
+//iterate through the array;
+ 
 Graph.prototype.removeNode = function(node) {
   var delNode = this.storage[node];
   delete this.storage[node];
-  each(this.storage, function(element) {
-    if (element.edge.includes(node)) {
-      var index = element.edge.indexOf(node);
-      element.edge.splice(index, 1);
+  each(this.storage, function(key) {
+    if (key.edge.includes(node)) {
+      var index = key.edge.indexOf(node);
+      key.edge.splice(index, 1);
     }
   });
   return delNode;
@@ -113,7 +114,7 @@ Graph.prototype.removeEdge = function(fromNode, toNode) {
 //forEachNode = applies whatever function is passed into and return the results; 
 Graph.prototype.forEachNode = function(cb) {
   for (var key in this.storage) {
-   cb(this.storage[key].value);
+    cb(this.storage[key].value);
   }
 };
 
@@ -134,7 +135,7 @@ test.addNode(5);
 test.addEdge(5, 4);
 test.hasEdge(4, 5);
 test.removeNode(5);
-test.hasEdge(4, 5)
+test.hasEdge(4, 5);
 // console.log(test.contains(1));
 // console.log(test);
 /*
