@@ -17,9 +17,9 @@
 
 
 var BinarySearchTree = function(value) {
-	this.value = value; 
-	this.left;
-	this.right; 
+  this.value = value; 
+  this.left;
+  this.right; 
 };
 
 /*
@@ -34,40 +34,17 @@ var BinarySearchTree = function(value) {
 				else = you assign value to value; 
 */		
 BinarySearchTree.prototype.insert = function (value) {
-	if (this.value > value && this.left) {
-		this.left.insert(value); 
-	} else if (this.value < value && this.right) {
-		this.right.insert(value);
+  if (this.value > value && this.left) {
+    this.left.insert(value); 
+  } else if (this.value < value && this.right) {
+    this.right.insert(value);
+  }
 
-	}
-
-	if (this.value > value && !this.left) {
-		this.left = new BinarySearchTree(value);
-	} else if (this.value < value && !this.right) {
-		this.right = new BinarySearchTree(value);
-	}
-	// if (!this.value) {
-	// 	this.value = new Nodes(value);
-	// }
-
-	// while (this.value) {
-	// 	if (this.value.value > value ) {
-	// 		if (!this.value.left) {
-	// 			this.value.left = new Nodes(value); 
-	// 			break; 
-	// 		} else {
-	// 			this.value = this.value.left; 
-	// 		}
-	// 	} else {
-	// 		if (!this.value.right) {
-	// 			this.value.right = new Nodes(value);
-	// 			break; 
-	// 		} else {
-	// 			this.value = this.value.right; 
-	// 		}
-	// 	}
-	// }
-
+  if (this.value > value && !this.left) {
+    this.left = new BinarySearchTree(value);
+  } else if (this.value < value && !this.right) {
+    this.right = new BinarySearchTree(value);
+  }
 };
 
 // A .contains() method, which accepts a value and returns a boolean reflecting whether or not the value is contained in the tree.
@@ -81,61 +58,51 @@ BinarySearchTree.prototype.insert = function (value) {
 
 */
 BinarySearchTree.prototype.contains = function (target) {
-	var wasFound = false;
+  var wasFound = false;
 
-	var recurse = function (obj) {
-		if (obj) {
-			if (obj.value === target) {
-				wasFound = true;
-				// return true;
-			} 
-			if (obj.value > target) {
-				recurse(obj.left);
-			} else if (obj.value < target) {
-				recurse(obj.right)
-			}
-		} else {
-			
-		}
-	}
-	recurse(this);
-	return wasFound; 
-	// return false;
+  var recurse = function (obj) {
+    if (obj) {
+      if (obj.value === target) {
+        wasFound = true;
+      } 
+
+      if (obj.value > target) {
+        recurse(obj.left);
+      } else if (obj.value < target) {
+        recurse(obj.right);
+      }
+    }	 
+  };
+  recurse(this);
+  return wasFound; 
+  // return false;
 };
 
 // A .depthFirstLog() method, which accepts a callback and executes it on every value contained in the tree.
-	//this needs to run a cb function on every single value inside the tree; 
+//this needs to run a cb function on every single value inside the tree; 
 BinarySearchTree.prototype.depthFirstLog = function (cb) {
-	// var recurse = function (obj) {
-	// 	if(obj) {
-	// 		cb(obj.value);
-	// 		recurse(cb(obj.left.value));
-	// 		recurse(cb(obj.right.value)); 
-	// 	}
-		
-	// }
-	// recurse(this);
-	var recurse = function (obj) {
-		if(obj) {
-			cb(obj.value)
-		}
-		if (obj.left && obj.left.value < obj.value) {
-			recurse(obj.left)
-		} 
-		if (obj.right && obj.right.value > obj.value) {
-			recurse(obj.right);
-		}
-	}
-	recurse(this);
+
+  var recurse = function (obj) {
+    if (obj) {
+      cb(obj.value);
+    }
+    if (obj.left && obj.left.value < obj.value) {
+      recurse(obj.left);
+    } 
+    if (obj.right && obj.right.value > obj.value) {
+      recurse(obj.right);
+    }
+  };
+  recurse(this);
 };
 
 
-var binarySearchTree = new BinarySearchTree(5)
+var binarySearchTree = new BinarySearchTree(5);
 binarySearchTree.insert(2);
 binarySearchTree.insert(3);
 binarySearchTree.insert(7);
 binarySearchTree.insert(6);
-binarySearchTree.contains(6)
+binarySearchTree.contains(6);
 
 
 /*
